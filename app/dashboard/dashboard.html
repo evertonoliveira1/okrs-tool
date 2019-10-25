@@ -49,34 +49,58 @@
                     <td><a href="#!/dashboard/{{ranker._id}}">{{ranker.ranker}}</a></td>
                     <td>{{ranker.date | date: "dd/MM/yyyy" }}</td>
                     <td>
-                        <i ng-class="ranker.welcomeEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.welcomeEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.welcomeEmail.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
                     <td>
-                        <i ng-class="ranker.welcomeMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                    </td>
-
-                    <td>
-                        <i ng-class="ranker.tasksEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                    </td>
-
-                    <td>
-                        <i ng-class="ranker.crossword.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.welcomeMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.welcomeMeeting.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
 
                     <td>
-                        <i ng-class="ranker.quiz.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.tasksEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.tasksEmail.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
 
                     <td>
-                        <i ng-class="ranker.challenges[0].hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.crossword.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.crossword.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="date">
+                            <span><i ng-class="ranker.quiz.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.quiz.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="date">
+                            <span><i ng-class="ranker.challenges[0].hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.challenges[0].date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
                     
                     <td>
-                        <i ng-class="ranker.feedbackMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.feedbackMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.feedbackMeeting.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
 
                     <td>
-                        <i ng-class="ranker.cerimony.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                        <div class="date">
+                            <span><i ng-class="ranker.cerimony.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i></span>
+                            <span>{{ranker.cerimony.date | date: "dd/MM/yyyy" }}</span>
+                        </div>
                     </td>
 
                     <td>{{ranker.challenges[0].grade.total}}</td>
