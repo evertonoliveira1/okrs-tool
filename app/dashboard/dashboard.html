@@ -1,89 +1,85 @@
-<div class="container">
+<div class="content">
 
     <div class="row">
-    
-        <div>
+
+        <div class="filter col-md-3">
+            <label>filtrar por ranker:</label>
             <select ng-model="filter.ranker" ng-change="applyFilter()">
                 <option></option>
                 <option ng-repeat="ranker in rankersOriginal" >{{ranker.ranker}}</option>
             </select>
+        </div>
 
+        <div class="filter col-md-3">
+
+            <label>filtrar por status:</label>
             <select ng-model="filter.status" ng-change="applyFilter()">
+                <option></option>
                 <option ng-repeat="status in statuses">{{status.description}}</option>
             </select>
+
         </div>
+        
+    </div>
 
-        <div>
-            <h4>Status do onboarding</h4>
+    <div class="row">
 
-            <table id="onboard">
-                <thead>
-                    <tr>
-                        <td style="width: 250px;">Ranker</td>
-                        <td>Data</td>
-                        <td>Email de introdução</td>
-                        <td>Reunião de introdução</td>
-                        <td>Email das tasks</td>
-                        <td>Cruzadinha</td>
-                        <td>Quiz</td>
-                        <td>Desafio</td>
-                        <td>Reunião de feedback</td>
-                        <td>Cerimônia</td>
-                        <td>Nota</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="ranker in rankers">
-                        <td><a href="#!/dashboard/{{ranker._id}}">{{ranker.ranker}}</a></td>
-                        <td>{{ranker.date | date: "dd/MM/yyyy" }}</td>
-                        <td>
-                            <i ng-class="ranker.welcomeEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
-                        <td>
-                            <i ng-class="ranker.welcomeMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+        <table id="onboard">
+            <thead>
+                <tr>
+                    <td style="width: 250px;">Ranker</td>
+                    <td>Data</td>
+                    <td>Email de introdução</td>
+                    <td>Reunião de introdução</td>
+                    <td>Email das tasks</td>
+                    <td>Cruzadinha</td>
+                    <td>Quiz</td>
+                    <td>Desafio</td>
+                    <td>Reunião de feedback</td>
+                    <td>Cerimônia</td>
+                    <td>Nota</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ranker in rankers">
+                    <td><a href="#!/dashboard/{{ranker._id}}">{{ranker.ranker}}</a></td>
+                    <td>{{ranker.date | date: "dd/MM/yyyy" }}</td>
+                    <td>
+                        <i ng-class="ranker.welcomeEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
+                    <td>
+                        <i ng-class="ranker.welcomeMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>
-                            <i ng-class="ranker.tasksEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+                    <td>
+                        <i ng-class="ranker.tasksEmail.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>
-                            <i ng-class="ranker.crossword.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+                    <td>
+                        <i ng-class="ranker.crossword.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>
-                            <i ng-class="ranker.quiz.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+                    <td>
+                        <i ng-class="ranker.quiz.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>
-                            <i ng-class="ranker.challenges[0].hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
-                        
-                        <td>
-                            <i ng-class="ranker.feedbackMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+                    <td>
+                        <i ng-class="ranker.challenges[0].hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
+                    
+                    <td>
+                        <i ng-class="ranker.feedbackMeeting.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>
-                            <i ng-class="ranker.cerimony.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
-                        </td>
+                    <td>
+                        <i ng-class="ranker.cerimony.hasFinished ? 'fa fa-check' : 'fa fa-times'"></i>
+                    </td>
 
-                        <td>{{ranker.challenges[0].grade.total}}</td>
+                    <td>{{ranker.challenges[0].grade.total}}</td>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- <p class="text-center" ng-show="loading">
-            <span class="fa fa-spinner fa-spin fa-3x"></span>
-        </p> -->
-
-    </div> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
-
-<!-- <script>
-    $(document).ready(function() {
-        $('#onboard').DataTable();
-    } );
-</script> -->

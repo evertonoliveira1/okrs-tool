@@ -36,9 +36,20 @@
 </head>
 <body>
   <ul class="menu">
-    <li><a class="btn btn-primary" href="#!/dashboard">Home</a></li>
-    <li><a class="btn btn-success" href="#!/ranker">Adicionar ranker</a></li>
-    <!-- <li><a class="btn btn-warning" href="#!/challenge">Cadastrar desafio</a></li> -->
+
+    <li>
+      <a class="btn btn-primary " href="#!/dashboard">
+        <span><i class="fa fa-home"></i></span>
+        <span class="font-20">Home</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="btn btn-success" href="#!/ranker">
+        <span><i class="fa fa-plus"></i></span>
+        <span class="font-20">Adicionar ranker</span>
+      </a>
+    </li>
   </ul>
 
   <!--[if lt IE 7]>
@@ -46,8 +57,8 @@
   <![endif]-->
 
 
-  <div class="text-center">
-    <h4>Dashboard para gerenciamento do onboarding dos OKRs</h4>
+  <div class="text-center" style="margin: 30px;">
+    <h2>Dashboard do onboard dos OKR's 3.1</h2>
   </div>
 
   <div ng-view></div>
@@ -63,8 +74,6 @@
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
-
-  <script src="core/common/common-directive.js"></script>
 
   <footer class="text-center text-muted">
     <p>Powered By RankMyAPP OKR's Champions v<span app-version></span></p>  

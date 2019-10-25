@@ -17,7 +17,6 @@ angular.module('myApp.dashboard', ['ngRoute'])
 .controller('DashboardCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.statuses = [
-		{ description: 'Todos' },
 		{ description: 'Pendentes' },
 		{ description: 'Concluídos' },
 	];
@@ -25,7 +24,6 @@ angular.module('myApp.dashboard', ['ngRoute'])
 	$scope.applyFilter = () => {
 
 		const { ranker, status } = $scope.filter;
-		debugger;
 		$scope.rankers = $scope.rankersOriginal;
 
 		if(status && status !== "Todos"){
@@ -50,6 +48,16 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 .controller('DashboardEditCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 	
+	const fields  = [
+		"welcomeEmail",
+		"welcomeMeeting",
+		"tasksEmail",	
+		"crossword",
+		"quiz",
+		"feedbackMeeting",
+		"cerimony"
+	];
+
 	const init = async () => {
 		const { rankerId } = $routeParams;
 		const url = `http://localhost:61000/rankers/${rankerId}`;
@@ -68,40 +76,23 @@ angular.module('myApp.dashboard', ['ngRoute'])
 	$scope.save = async () => {
 		const { rankerId } = $routeParams;
 		const url = `http://localhost:61000/rankers/${rankerId}`;
-
-		formatDate();
 		debugger;
-
 		const { data } = await $http({
 			url, 
 			method: 'PUT',
 			data: $scope.ranker
 		});
 
-		console.log(data);
+		if(data) {
+			$scope.goBack();
+		}
 	};
 
 	$scope.goBack = () => {
 		window.history.back();
 	};
-
-	$scope.changeProp = (prop) => {
-		debugger;
-		console.log('prop', prop);
-	}
 	
-	const fields  = [
-		"welcomeEmail",
-		"welcomeMeeting",
-		"tasksEmail",	
-		"crossword",
-		"quiz",
-		"feedbackMeeting",
-		"cerimony"
-	];
-
 	const formatDate = () => {
-		debugger;
 
 		fields.forEach(prop => {		
 			if($scope.ranker && $scope.ranker[prop].date) {

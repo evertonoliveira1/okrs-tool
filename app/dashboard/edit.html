@@ -8,16 +8,16 @@
         </div>
 
         <div class="row">
-            <step-for title="E-mail de boas vindas" on-add="changeProp('AAAA');" ng-model="ranker.welcomeEmail"></step-for>
+            <step-for title="E-mail de boas vindas" ng-model="ranker.welcomeEmail"></step-for>
         
-            <step-for title="Reunião de boas vindas" on-add="changeProp('BBBB');" ng-model="ranker.welcomeMeeting"></step-for>
+            <step-for title="Reunião de boas vindas" ng-model="ranker.welcomeMeeting"></step-for>
 
-            <step-for title="E-mail das tarefas" on-add="changeProp('CCCC');" ng-model="ranker.tasksEmail"></step-for>
+            <step-for title="E-mail das tarefas" ng-model="ranker.tasksEmail"></step-for>
         
-            <step-for title="Finalizou a cruzadinha?" on-add="changeProp('DDDD')" ng-model="ranker.crossword"></step-for>
+            <step-for title="Finalizou a cruzadinha?" ng-model="ranker.crossword"></step-for>
         </div>
 
-        <!-- <div class="row">
+        <div class="row">
 
             <step-for title="Finalizou o Quiz?" ng-model="ranker.quiz"></step-for>
 
@@ -27,24 +27,24 @@
 
             <step-for title="Teve a cerimônia de graduação?" ng-model="ranker.cerimony"></step-for>
             
-        </div> -->
+        </div>
        
         <div class="row" ng-repeat="challenge in ranker.challenges">
             <h3>Desafio</h3>
             
             <div class="form-group">
                 <label>Objetivo</label>                
-                <input type="text" class="form-control" ng-model="challenge.objective" disabledd />
+                <input type="text" class="form-control" ng-model="challenge.objective" disabled />
             </div>
 
             <div class="form-group">
                 <label>KR 1</label>                
-                <input type="text" class="form-control" ng-model="challenge.kr1" disabledd />
+                <input type="text" class="form-control" ng-model="challenge.kr1" disabled />
             </div>
 
             <div class="form-group">
                 <label>KR 2</label>                
-                <input type="text" class="form-control" ng-model="challenge.kr2" disabledd />
+                <input type="text" class="form-control" ng-model="challenge.kr2" disabled />
             </div>
 
             <div class="panel">
@@ -74,6 +74,14 @@
                         {{total}}
                     </span>
                 </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label>Observação</label>                
+                        <textarea ng-model="challenge.grade.note" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
             </div>
 
             <div class="row">

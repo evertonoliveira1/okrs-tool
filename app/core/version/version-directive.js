@@ -44,6 +44,7 @@ angular.module('myApp.version.version-directive', [])
 
    ddo.scope = {
       title: '@',
+      prop: '@',
       ngModel: '=',
       ngChange: '@',
       onAdd: '&' 
@@ -53,8 +54,15 @@ angular.module('myApp.version.version-directive', [])
 
    ddo.link = function (scope, elem, attrs) {
       if(typeof scope.onAdd === 'function'){
-         debugger;
          scope.onAdd(scope, elem, attrs);
+         scope.change = async (model) => {
+            if(model.hasFinished){
+               if(!model.date){
+                  const date = new Date();
+                  model.date =  date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+               }
+            }
+         }
       }
    };
 
