@@ -1,0 +1,96 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="form-group">
+            <label>Ranker</label>                
+            <input type="text" class="form-control" ng-model="ranker.ranker" />
+        </div>
+
+        <div class="row">
+            <step-for title="E-mail de boas vindas" on-add="changeProp('AAAA');" ng-model="ranker.welcomeEmail"></step-for>
+        
+            <step-for title="Reunião de boas vindas" on-add="changeProp('BBBB');" ng-model="ranker.welcomeMeeting"></step-for>
+
+            <step-for title="E-mail das tarefas" on-add="changeProp('CCCC');" ng-model="ranker.tasksEmail"></step-for>
+        
+            <step-for title="Finalizou a cruzadinha?" on-add="changeProp('DDDD')" ng-model="ranker.crossword"></step-for>
+        </div>
+
+        <!-- <div class="row">
+
+            <step-for title="Finalizou o Quiz?" ng-model="ranker.quiz"></step-for>
+
+            <step-for title="Completou o desafio?" ng-model="ranker.challenge"></step-for>
+
+            <step-for title="Teve a reunião de feedback?" ng-model="ranker.feedbackMeeting"></step-for>
+
+            <step-for title="Teve a cerimônia de graduação?" ng-model="ranker.cerimony"></step-for>
+            
+        </div> -->
+       
+        <div class="row" ng-repeat="challenge in ranker.challenges">
+            <h3>Desafio</h3>
+            
+            <div class="form-group">
+                <label>Objetivo</label>                
+                <input type="text" class="form-control" ng-model="challenge.objective" disabledd />
+            </div>
+
+            <div class="form-group">
+                <label>KR 1</label>                
+                <input type="text" class="form-control" ng-model="challenge.kr1" disabledd />
+            </div>
+
+            <div class="form-group">
+                <label>KR 2</label>                
+                <input type="text" class="form-control" ng-model="challenge.kr2" disabledd />
+            </div>
+
+            <div class="panel">
+
+                <div class="form-group col-md-2">
+                    <label>KRs Mensuráveis (0-3)</label>                
+                    <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.measurable" ng-change="calculateTotal(challenge.grade)" />
+                </div>
+
+                <div class="form-group col-md-3" >
+                    <label>Coesão dos KRs com o Objetivo (0-2)</label>                
+                    <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.cohesion" ng-change="calculateTotal(challenge.grade)" />
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label>Relação com o Desafio Proposto (0-3)</label>                
+                    <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.porposal" ng-change="calculateTotal(challenge.grade)" />
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label>Clareza na Escrita (0-2)</label>                
+                    <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.clarity" ng-change="calculateTotal(challenge.grade)" />
+                </div>
+
+                <div class="col-md-2 score" ng-if="total > 0">
+                    <span class="score" ng-class="total >= 7 ? 'positive' : 'negative'">
+                        {{total}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <button class="btn btn-warning" ng-click="goBack()" style="font-size: 20px;">
+                    <span><i class="fa fa-reply"></i></span>
+                    <span >Voltar</span>
+                </button>
+
+                <button class="btn btn-success" ng-click="save()" style="font-size: 20px; background: green;">
+                    <span><i class="fa fa-save"></i></span>
+                    <span >Salvar</span>
+                </button>
+            </div>
+
+        </div>
+  
+    </div> 
+
+</div>

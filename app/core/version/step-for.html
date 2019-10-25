@@ -1,0 +1,28 @@
+<div class="form-group col-md-3">
+    <label>{{title}}</label>                
+    
+    <div class="margin-t-15" style="display: block;">
+
+        <label class="switch">
+            <input 
+                type="checkbox" 
+                ng-checked="ngModel.hasFinished" 
+                ng-model="ngModel.hasFinished"
+                ng-change="'onAdd()"
+            />
+            <span class="slider round"></span>                    
+        </label>
+
+        <span>{{ngModel.hasFinished ? 'Sim' : 'Não'}}</span>
+    </div>
+    
+    <div class="margin-t-15" ng-if="ngModel.hasFinished">
+        <input 
+            class="form-control" 
+            type="text" 
+            datepicker
+            ng-model="ngModel.date"
+        />
+    </div> 
+
+</div>
