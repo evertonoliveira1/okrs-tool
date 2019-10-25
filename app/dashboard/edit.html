@@ -49,30 +49,32 @@
 
             <div class="panel">
 
-                <div class="form-group col-md-2">
-                    <label>KRs Mensuráveis (0-3)</label>                
-                    <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.measurable" ng-change="calculateTotal(challenge.grade)" />
-                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label>KRs Mensuráveis (0-3)</label>                
+                        <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.measurable" ng-change="calculateTotal(challenge.grade, $index)" />
+                    </div>
 
-                <div class="form-group col-md-3" >
-                    <label>Coesão dos KRs com o Objetivo (0-2)</label>                
-                    <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.cohesion" ng-change="calculateTotal(challenge.grade)" />
-                </div>
+                    <div class="form-group col-md-3" >
+                        <label>Coesão dos KRs com o Objetivo (0-2)</label>                
+                        <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.cohesion" ng-change="calculateTotal(challenge.grade, $index)" />
+                    </div>
 
-                <div class="form-group col-md-3">
-                    <label>Relação com o Desafio Proposto (0-3)</label>                
-                    <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.porposal" ng-change="calculateTotal(challenge.grade)" />
-                </div>
+                    <div class="form-group col-md-3">
+                        <label>Relação com o Desafio Proposto (0-3)</label>                
+                        <input type="number" class="form-control" min="0" max="3" ng-model="challenge.grade.porposal" ng-change="calculateTotal(challenge.grade, $index)" />
+                    </div>
 
-                <div class="form-group col-md-2">
-                    <label>Clareza na Escrita (0-2)</label>                
-                    <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.clarity" ng-change="calculateTotal(challenge.grade)" />
-                </div>
+                    <div class="form-group col-md-2">
+                        <label>Clareza na Escrita (0-2)</label>                
+                        <input type="number" class="form-control" min="0" max="2" ng-model="challenge.grade.clarity" ng-change="calculateTotal(challenge.grade, $index)" />
+                    </div>
 
-                <div class="col-md-2 score" ng-if="total > 0">
-                    <span class="score" ng-class="total >= 7 ? 'positive' : 'negative'">
-                        {{total}}
-                    </span>
+                    <div class="col-md-2 score" ng-if="challenge.grade.total > 0">
+                        <span class="score" ng-class="challenge.grade.total >= 7 ? 'positive' : 'negative'">
+                            {{challenge.grade.total}}
+                        </span>
+                    </div>
                 </div>
 
                 <div class="row">

@@ -199,3 +199,6 @@ table {
   width: 100%;
 }
 
+.finished {
+  background: #dbefdf;
+}

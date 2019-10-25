@@ -16,6 +16,8 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 .controller('DashboardCtrl', ['$scope', '$http', function($scope, $http) {
 
+	const BASE_URL = "http://localhost:61000";
+
 	$scope.statuses = [
 		{ description: 'Pendentes' },
 		{ description: 'Concluídos' },
@@ -36,7 +38,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
 	};
 
 	const init = async () => {
-		const url = 'http://localhost:61000/rankers';
+		const url = `${BASE_URL}/rankers`;
 		const { data } = await $http.get(url);
 		$scope.rankers = data;
 		$scope.rankersOriginal = data;
@@ -48,6 +50,8 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 .controller('DashboardEditCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 	
+	const BASE_URL = "http://localhost:61000";
+
 	const fields  = [
 		"welcomeEmail",
 		"welcomeMeeting",
@@ -58,34 +62,29 @@ angular.module('myApp.dashboard', ['ngRoute'])
 		"cerimony"
 	];
 
-	const init = async () => {
-		const { rankerId } = $routeParams;
-		const url = `http://localhost:61000/rankers/${rankerId}`;
-		const { data } = await $http.get(url);
-		$scope.ranker = data;
-		$scope.$apply();
-		$scope.calculateTotal();
-		formatDate();
+	$scope.calculateTotal = (grade, index) => {		
+		const { measurable, cohesion, porposal, clarity } = grade || {};
+		grade.total = (measurable + cohesion + porposal + clarity);
 	};
 
-	$scope.calculateTotal = (grade) => {		
-		const { measurable, cohesion, porposal, clarity } = grade || {};
-		$scope.total = (measurable + cohesion + porposal + clarity);
-	}
+	const init = async () => {
+		const { rankerId } = $routeParams;
+		const url = `${BASE_URL}/rankers/${rankerId}`;
+		const { data } = await $http.get(url);
+		$scope.ranker = data;
+		formatDate();
+		$scope.$apply();
+	};
 
 	$scope.save = async () => {
 		const { rankerId } = $routeParams;
-		const url = `http://localhost:61000/rankers/${rankerId}`;
-		debugger;
+		const url = `${BASE_URL}/rankers/${rankerId}`;
 		const { data } = await $http({
 			url, 
 			method: 'PUT',
 			data: $scope.ranker
 		});
-
-		if(data) {
-			$scope.goBack();
-		}
+		if(data) $scope.goBack();
 	};
 
 	$scope.goBack = () => {
