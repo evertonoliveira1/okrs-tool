@@ -14,7 +14,7 @@
     "body-parser": "^1.18.2",
     "bootstrap-datepicker": "^1.9.0",
     "bootstrap-toggle": "^2.2.2",
-    "datatables.net": "^1.10.20",
+    "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.20",
     "express": "^4.10.8",
     "html5-boilerplate": "0.0.1",
